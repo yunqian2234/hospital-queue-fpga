@@ -1,0 +1,73 @@
+# 诊室板（V7-3，第二块 HX4S20C）管脚约束。
+# 本板只用：50M 时钟、复位、板上 K1/K2/K3、HDMI 输出、J2 板间链路、蜂鸣器。
+# 两块板各用自己的 USB 供电，只连 J2 的信号线与 GND。
+set_pin_assignment { clk } { LOCATION = R7; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+# 板上 KEY1=A2 用作复位（按下为低），板载按键 KEY2=B2、KEY3=B1、KEY4=C1 给医生用。
+# 注意：主板把 A2 当作 rst_n，此处相同；其余按键在主板是 key1/key2/key3，含义不同，
+# 因此诊室板顶层端口名直接用 key1/key2/key3，含义见顶层注释（叫号/重播/确认求助）。
+set_pin_assignment { rst_n } { LOCATION = A2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# key1 -> 板上 KEY2 (B2) 叫下一位；key2 -> KEY3 (B1) 重播；key3 -> KEY4 (C1) 确认求助。
+# 说明：主板把 KEY3=B1 与 KEY4=C1 绑成 key2/key3，这里拆开使用，三键各管一事。
+set_pin_assignment { key1 } { LOCATION = B2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { key2 } { LOCATION = B1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { key3 } { LOCATION = C1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# HDMI 输出（HDMI B 口，与主板相同的直连方式）
+set_pin_assignment { HDMI_DDC_SCL } { LOCATION = P2; IOSTANDARD = LVCMOS33;DRIVESTRENGTH = 8; PULLTYPE = PULLUP;}
+set_pin_assignment { HDMI_DDC_SDA } { LOCATION = R2; IOSTANDARD = LVCMOS33;DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment { HDMI_CLK_P } { LOCATION = C3; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment { HDMI_D0_P } { LOCATION = G5; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment { HDMI_D1_P } { LOCATION = F1; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment { HDMI_D2_P } { LOCATION = E1; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+# J2 第 1/2 脚板间链路
+set_pin_assignment { link_tx } { LOCATION = P4; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { link_rx } { LOCATION = N4; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+# 蜂鸣器 H11：低电平响（板上 SW5 控制通断，需拨下）
+set_pin_assignment { buzzer } { LOCATION = H11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# 10/23 诊室板 TF 卡（SPI 模式，读表达卡片 CARD1～6.BMP），与大厅板 pin.adc 相同的管脚和电气设置。
+set_pin_assignment { sd_dclk } { LOCATION = A14; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { sd_miso } { LOCATION = B14; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { sd_mosi } { LOCATION = A13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { sd_ncs } { LOCATION = A12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+# V8 板载网口（RTL8211E，RGMII，按 100 Mbps 使用），引脚见开发板手册“以太网接口”表。
+# 网口芯片的复位/配置脚不接 FPGA，上电后由 eth_phy_ctrl 经 MDIO 扫描地址并配置。
+set_pin_assignment { eth_txc } { LOCATION = T12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { eth_tx_ctl } { LOCATION = T7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { eth_txd[0] } { LOCATION = T4; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { eth_txd[1] } { LOCATION = T6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { eth_txd[2] } { LOCATION = M7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { eth_txd[3] } { LOCATION = T8; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+# RXC 在 T14（GCLKIOT_3，全局时钟输入脚）。
+set_pin_assignment { eth_rxc } { LOCATION = T14; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { eth_rx_ctl } { LOCATION = T13; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { eth_rxd[0] } { LOCATION = P6; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { eth_rxd[1] } { LOCATION = M6; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { eth_rxd[2] } { LOCATION = T9; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { eth_rxd[3] } { LOCATION = N9; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { eth_mdc } { LOCATION = L13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { eth_mdio } { LOCATION = M13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+
+# V8 数码管（与大厅板同一组引脚）：E1 网口状态，E2E3 收到的有效帧数，E5E6 损坏帧数。
+set_pin_assignment { seg_data[0] } { LOCATION = C15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_data[1] } { LOCATION = C16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_data[2] } { LOCATION = B6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_data[3] } { LOCATION = A5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_data[4] } { LOCATION = B5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_data[5] } { LOCATION = A8; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_data[6] } { LOCATION = A7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_data[7] } { LOCATION = A6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_sel[0] } { LOCATION = E12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_sel[1] } { LOCATION = E10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_sel[2] } { LOCATION = C13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_sel[3] } { LOCATION = F10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_sel[4] } { LOCATION = E11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment { seg_sel[5] } { LOCATION = D11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+# 10/25 dual-room terminal: the external 3.3 V key module on J1 (pins 31/32/33 = OUT1..3) is room B's
+# 叫下一位 / 重播 / 确认求助 (same wiring as on the hall board before 10/24; J1-29 = 3.3 V, J1-30 = GND,
+# NEVER J1-11 = 5 V). SW4/C5 down = dual-room, SW3/C6 = room in single-room mode.
+set_pin_assignment { room_b_keys_n[0] } { LOCATION = M15; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { room_b_keys_n[1] } { LOCATION = L16; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { room_b_keys_n[2] } { LOCATION = N16; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment { dual_sw } { LOCATION = C5; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment { room_sw } { LOCATION = C6; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }

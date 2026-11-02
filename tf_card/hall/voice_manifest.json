@@ -1,0 +1,296 @@
+{
+  "file": "VOICE.PCM",
+  "bytes": 2948608,
+  "sha256": "4981176c31d5f0fa9762c4b2897b21e824bcfbcad3b4955e735380e994c3470f",
+  "format": "s16le mono 48 kHz, sector-aligned clips, header in sector 0",
+  "gain": 0.8351737980692644,
+  "clip_ids": {
+    "CLIP_CHIME": 0,
+    "CLIP_PLEASE": 1,
+    "CLIP_NUMBER_BASE": 1,
+    "CLIP_CALL_SUFFIX": 22,
+    "CLIP_ROOM_BASE": 23,
+    "CLIP_HELP_ACK": 30,
+    "CLIP_HELP_REQ": 31
+  },
+  "clips": [
+    {
+      "id": 0,
+      "text": "(chime)",
+      "source": "synthetic chime",
+      "samples": 43200,
+      "seconds": 0.9,
+      "start_sector": 1
+    },
+    {
+      "id": 1,
+      "text": "请",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 18488,
+      "seconds": 0.385,
+      "start_sector": 170
+    },
+    {
+      "id": 2,
+      "text": "一号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 24384,
+      "seconds": 0.508,
+      "start_sector": 243
+    },
+    {
+      "id": 3,
+      "text": "二号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 25435,
+      "seconds": 0.53,
+      "start_sector": 339
+    },
+    {
+      "id": 4,
+      "text": "三号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 30464,
+      "seconds": 0.635,
+      "start_sector": 439
+    },
+    {
+      "id": 5,
+      "text": "四号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 27840,
+      "seconds": 0.58,
+      "start_sector": 558
+    },
+    {
+      "id": 6,
+      "text": "五号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 25029,
+      "seconds": 0.521,
+      "start_sector": 667
+    },
+    {
+      "id": 7,
+      "text": "六号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 26878,
+      "seconds": 0.56,
+      "start_sector": 765
+    },
+    {
+      "id": 8,
+      "text": "七号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 27450,
+      "seconds": 0.572,
+      "start_sector": 870
+    },
+    {
+      "id": 9,
+      "text": "八号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 25378,
+      "seconds": 0.529,
+      "start_sector": 978
+    },
+    {
+      "id": 10,
+      "text": "九号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 27214,
+      "seconds": 0.567,
+      "start_sector": 1078
+    },
+    {
+      "id": 11,
+      "text": "十号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 29073,
+      "seconds": 0.606,
+      "start_sector": 1185
+    },
+    {
+      "id": 12,
+      "text": "十一号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 36282,
+      "seconds": 0.756,
+      "start_sector": 1299
+    },
+    {
+      "id": 13,
+      "text": "十二号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 37417,
+      "seconds": 0.78,
+      "start_sector": 1441
+    },
+    {
+      "id": 14,
+      "text": "十三号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 39883,
+      "seconds": 0.831,
+      "start_sector": 1588
+    },
+    {
+      "id": 15,
+      "text": "十四号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 39097,
+      "seconds": 0.815,
+      "start_sector": 1744
+    },
+    {
+      "id": 16,
+      "text": "十五号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 36977,
+      "seconds": 0.77,
+      "start_sector": 1897
+    },
+    {
+      "id": 17,
+      "text": "十六号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 38313,
+      "seconds": 0.798,
+      "start_sector": 2042
+    },
+    {
+      "id": 18,
+      "text": "十七号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 38108,
+      "seconds": 0.794,
+      "start_sector": 2192
+    },
+    {
+      "id": 19,
+      "text": "十八号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 37604,
+      "seconds": 0.783,
+      "start_sector": 2341
+    },
+    {
+      "id": 20,
+      "text": "十九号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 38601,
+      "seconds": 0.804,
+      "start_sector": 2488
+    },
+    {
+      "id": 21,
+      "text": "二十号",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 35877,
+      "seconds": 0.747,
+      "start_sector": 2639
+    },
+    {
+      "id": 22,
+      "text": "到诊室就诊",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 56000,
+      "seconds": 1.167,
+      "start_sector": 2780
+    },
+    {
+      "id": 23,
+      "text": "到一诊室就诊",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 65208,
+      "seconds": 1.359,
+      "start_sector": 2999
+    },
+    {
+      "id": 24,
+      "text": "到二诊室就诊",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 65310,
+      "seconds": 1.361,
+      "start_sector": 3254
+    },
+    {
+      "id": 25,
+      "text": "到三诊室就诊",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 66755,
+      "seconds": 1.391,
+      "start_sector": 3510
+    },
+    {
+      "id": 26,
+      "text": "到四诊室就诊",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 63296,
+      "seconds": 1.319,
+      "start_sector": 3771
+    },
+    {
+      "id": 27,
+      "text": "请稍候",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 40355,
+      "seconds": 0.841,
+      "start_sector": 4019
+    },
+    {
+      "id": 28,
+      "text": "请稍候",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 40355,
+      "seconds": 0.841,
+      "start_sector": 4177
+    },
+    {
+      "id": 29,
+      "text": "请稍候",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 40355,
+      "seconds": 0.841,
+      "start_sector": 4335
+    },
+    {
+      "id": 30,
+      "text": "工作人员已收到求助，请稍候",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 153654,
+      "seconds": 3.201,
+      "start_sector": 4493
+    },
+    {
+      "id": 31,
+      "text": "患者请求帮助，请工作人员前往",
+      "source": "TTS Microsoft Huihui Desktop",
+      "samples": 170016,
+      "seconds": 3.542,
+      "start_sector": 5094
+    }
+  ],
+  "example_sentences": {
+    "call_07": [
+      0,
+      1,
+      8,
+      23
+    ],
+    "call_20": [
+      0,
+      1,
+      21,
+      23
+    ],
+    "express_write": [],
+    "help": [
+      0,
+      31
+    ],
+    "help_ack": [
+      30
+    ]
+  }
+}

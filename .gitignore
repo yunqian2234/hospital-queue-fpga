@@ -1,0 +1,33 @@
+# TD runs (the GUI creates these next to the .al files)
+src/td_project/*_Runs/
+src/td_project_clinic/*_Runs/
+src/td_project/*_seed*/
+src/td_project_clinic/*_seed*/
+src/td_project/log/
+src/td_project_clinic/log/
+*.bit
+*.bin
+*.db
+*.dmp
+*.timing
+*.area
+*.qor
+*.logw
+td_*.log
+
+# simulation output
+*.vvp
+*.vcd
+*.fst
+verification/**/mut/
+
+# python
+__pycache__/
+*.pyc
+
+# editors / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+~$*
